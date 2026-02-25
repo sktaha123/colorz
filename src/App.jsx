@@ -1,12 +1,13 @@
-import { useState, useMemo, useCallback, useEffect } from 'react';
+import { useState, useMemo, useCallback, useEffect, lazy, Suspense, useDeferredValue } from 'react';
 import Navbar from './components/layout/Navbar';
 import Sidebar from './components/layout/Sidebar';
 import PaletteCard from './components/features/PaletteCard';
 import UISystemCard from './components/features/UISystemCard';
-import UISystemDrawer from './components/features/UISystemDrawer';
-import UIGenerator from './components/systems/UIGenerator';
 import Pagination, { ITEMS_PER_PAGE } from './components/features/Pagination';
 import Toast, { useToasts } from './components/features/Toast';
+
+const UISystemDrawer = lazy(() => import('./components/features/UISystemDrawer'));
+const UIGenerator = lazy(() => import('./components/systems/UIGenerator'));
 import { STANDARD_PALETTES } from './data/standardPalettes';
 import { UI_SYSTEM_PALETTES } from './data/uiSystemPalettes';
 import './index.css';
@@ -19,6 +20,7 @@ const SORT_OPTIONS = [
 
 export default function App() {
   const [search, setSearch] = useState('');
+  const deferredSearch = useDeferredValue(search);
   const [activeCategory, setActiveCategory] = useState('all');
   const [activeTab, setActiveTab] = useState('standard'); // 'standard' | 'ui-system' | 'generator'
   const [sort, setSort] = useState('popular');
@@ -78,6 +80,14 @@ export default function App() {
     setIsSidebarOpen(prev => !prev);
   }, []);
 
+  const handleSearchChange = useCallback((value) => {
+    setSearch(value);
+    if (activeTab === 'generator') {
+      setActiveTab('standard');
+      setActiveCategory('all');
+    }
+  }, [activeTab]);
+
   // Filtered + sorted standard palettes
   const filteredPalettes = useMemo(() => {
     let data = STANDARD_PALETTES;
@@ -90,8 +100,8 @@ export default function App() {
     }
 
     // Filter by search (match hex colors or tags)
-    if (search.trim()) {
-      const q = search.trim().toLowerCase();
+    if (deferredSearch.trim()) {
+      const q = deferredSearch.trim().toLowerCase();
       data = data.filter(p =>
         p.colors.some(c => c.toLowerCase().includes(q)) ||
         p.tags.some(t => t.toLowerCase().includes(q)) ||
@@ -107,7 +117,7 @@ export default function App() {
     }
 
     return data;
-  }, [activeCategory, search, sort, savedPalettes]);
+  }, [activeCategory, deferredSearch, sort, savedPalettes]);
 
   // Filtered UI system palettes
   const filteredUISystems = useMemo(() => {
@@ -117,8 +127,8 @@ export default function App() {
       data = data.filter(s => savedUISystems.includes(s.id));
     }
 
-    if (search.trim()) {
-      const q = search.trim().toLowerCase();
+    if (deferredSearch.trim()) {
+      const q = deferredSearch.trim().toLowerCase();
       data = data.filter(s =>
         s.name.toLowerCase().includes(q) ||
         s.description.toLowerCase().includes(q) ||
@@ -126,7 +136,7 @@ export default function App() {
       );
     }
     return data;
-  }, [search, activeCategory, savedUISystems]);
+  }, [deferredSearch, activeCategory, savedUISystems]);
 
   // Paginated palettes
   const pagedPalettes = useMemo(() => {
@@ -170,7 +180,7 @@ export default function App() {
     <>
       <Navbar
         search={search}
-        onSearch={setSearch}
+        onSearch={handleSearchChange}
         totalCount={totalCount}
         onToggleSidebar={toggleSidebar}
       />
@@ -219,7 +229,9 @@ export default function App() {
           {/* Generator Tab */}
           {isGenerator && (
             <div style={{ padding: '0 var(--space-6)' }}>
-              <UIGenerator />
+              <Suspense fallback={<div className="loading-shimmer" style={{ height: 400, borderRadius: 'var(--radius-lg)' }} />}>
+                <UIGenerator />
+              </Suspense>
             </div>
           )}
 
@@ -285,10 +297,12 @@ export default function App() {
 
       {/* UI System Drawer */}
       {selectedSystem && (
-        <UISystemDrawer
-          system={selectedSystem}
-          onClose={handleCloseDrawer}
-        />
+        <Suspense fallback={null}>
+          <UISystemDrawer
+            system={selectedSystem}
+            onClose={handleCloseDrawer}
+          />
+        </Suspense>
       )}
 
       {/* Toast notifications */}

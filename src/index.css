@@ -90,14 +90,15 @@ body {
   --font-sans: 'Inter', -apple-system, sans-serif;
 
   /* Font sizes */
-  --text-xs: 11px;
-  --text-sm: 12px;
-  --text-base: 14px;
-  --text-md: 15px;
-  --text-lg: 16px;
-  --text-xl: 18px;
-  --text-2xl: 22px;
-  --text-3xl: 28px;
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 26px;
+  --text-3xl: 36px;
+  --text-4xl: 48px;
 
   /* Transitions */
   --transition-fast: 100ms ease;
@@ -206,8 +207,8 @@ body {
 }
 
 .brand-name {
-  font-size: var(--text-md);
-  font-weight: 600;
+  font-size: var(--text-lg);
+  font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.02em;
 }
@@ -230,7 +231,7 @@ body {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   color: var(--text-primary);
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   font-family: var(--font-sans);
   outline: none;
   transition: border-color var(--transition-base);
@@ -312,6 +313,7 @@ body {
   justify-content: space-between;
   padding: var(--space-2) var(--space-4);
   font-size: var(--text-sm);
+  font-weight: 500;
   color: var(--text-secondary);
   cursor: pointer;
   border-radius: 0;
@@ -369,16 +371,18 @@ body {
 }
 
 .content-title {
-  font-size: var(--text-xl);
-  font-weight: 600;
+  font-size: var(--text-3xl);
+  font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 .content-subtitle {
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   color: var(--text-tertiary);
-  margin-top: 2px;
+  margin-top: var(--space-2);
+  font-weight: 400;
 }
 
 /* ============================================================
@@ -399,7 +403,7 @@ body {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   color: var(--text-secondary);
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   font-family: var(--font-sans);
   cursor: pointer;
   outline: none;
@@ -599,14 +603,14 @@ body {
 }
 
 .ui-card-name {
-  font-size: var(--text-md);
+  font-size: var(--text-lg);
   font-weight: 600;
   color: var(--text-primary);
   letter-spacing: -0.01em;
 }
 
 .ui-card-description {
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   color: var(--text-secondary);
   margin-top: 2px;
 }
@@ -678,7 +682,7 @@ body {
   gap: var(--space-2);
   padding: 0 var(--space-4);
   height: 30px;
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   font-family: var(--font-sans);
   font-weight: 500;
   border-radius: var(--radius-md);
@@ -770,7 +774,7 @@ body {
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-4);
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   font-weight: 500;
   color: var(--text-tertiary);
   cursor: pointer;
@@ -867,7 +871,7 @@ body {
 }
 
 .color-pick-value {
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   font-family: var(--font-mono);
   color: var(--text-secondary);
 }
@@ -891,7 +895,7 @@ input[type="color"].hidden-color-input {
 .mode-toggle-btn {
   padding: 0 var(--space-3);
   height: 30px;
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   font-family: var(--font-sans);
   font-weight: 500;
   cursor: pointer;
@@ -915,7 +919,7 @@ input[type="color"].hidden-color-input {
 }
 
 .token-section-title {
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   font-weight: 600;
   color: var(--text-tertiary);
   text-transform: uppercase;
@@ -941,7 +945,7 @@ input[type="color"].hidden-color-input {
 
 .token-table td {
   padding: var(--space-2) var(--space-3);
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   color: var(--text-secondary);
   vertical-align: middle;
 }
@@ -971,7 +975,7 @@ input[type="color"].hidden-color-input {
 }
 
 .token-label {
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   color: var(--text-secondary);
 }
 
@@ -1118,7 +1122,7 @@ input[type="color"].hidden-color-input {
   border: 1px solid var(--border-subtle);
   background: var(--bg-elevated);
   color: var(--text-secondary);
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   font-family: var(--font-sans);
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -1164,7 +1168,7 @@ input[type="color"].hidden-color-input {
   border: 1px solid var(--border-default);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   color: var(--text-primary);
   animation: toast-in 0.2s ease;
   max-width: 300px;
@@ -1268,7 +1272,7 @@ input[type="color"].hidden-color-input {
 }
 
 .empty-state-desc {
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   max-width: 320px;
   margin: 0 auto;
 }
@@ -1299,6 +1303,9 @@ input[type="color"].hidden-color-input {
 @media (max-width: 768px) {
   :root {
     --sidebar-width: 160px;
+    --text-3xl: 28px;
+    /* Scale down h1 on mobile */
+    --text-2xl: 22px;
   }
 
   .navbar {
@@ -1373,5 +1380,49 @@ input[type="color"].hidden-color-input {
 
   .navbar-brand .brand-name {
     display: none;
+  }
+}
+
+/* ============================================================
+   Performance & Utilities
+   ============================================================ */
+.loading-shimmer {
+  background: linear-gradient(90deg,
+      var(--bg-elevated) 25%,
+      var(--bg-hover) 50%,
+      var(--bg-elevated) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.palette-card,
+.ui-system-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 150px 300px;
+  /* Placeholder size for browser layout calculations */
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
   }
 }

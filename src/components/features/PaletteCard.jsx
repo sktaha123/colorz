@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, memo } from 'react';
 
 const CopyIcon = () => (
     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -19,7 +19,7 @@ const BookmarkIcon = ({ filled }) => (
     </svg>
 );
 
-export default function PaletteCard({ palette, onCopy, isSaved, onSave }) {
+const PaletteCard = memo(function PaletteCard({ palette, onCopy, isSaved, onSave }) {
     const [liked, setLiked] = useState(false);
     const [copiedIdx, setCopiedIdx] = useState(null);
 
@@ -104,4 +104,6 @@ export default function PaletteCard({ palette, onCopy, isSaved, onSave }) {
             </div>
         </article>
     );
-}
+});
+
+export default PaletteCard;
