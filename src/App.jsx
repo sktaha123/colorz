@@ -5,6 +5,7 @@ import PaletteCard from './components/features/PaletteCard';
 import UISystemCard from './components/features/UISystemCard';
 import Pagination, { ITEMS_PER_PAGE } from './components/features/Pagination';
 import Toast, { useToasts } from './components/features/Toast';
+import { updateMetaTags, getHomepageMetadata, getStandardPalettesMetadata, getUISystemMetadata, getGeneratorMetadata } from './utils/seoMetaTags';
 
 const UISystemDrawer = lazy(() => import('./components/features/UISystemDrawer'));
 const UIGenerator = lazy(() => import('./components/systems/UIGenerator'));
@@ -56,6 +57,31 @@ export default function App() {
     setPage(1);
     setIsSidebarOpen(false);
   }, [search, activeCategory, sort, activeTab]);
+
+  // Update SEO meta tags based on active tab
+  useEffect(() => {
+    if (activeTab === 'generator') {
+      updateMetaTags(getGeneratorMetadata());
+    } else if (activeTab === 'ui-system') {
+      updateMetaTags(getUISystemMetadata());
+    } else if (activeTab === 'standard') {
+      if (activeCategory === 'saved') {
+        updateMetaTags({
+          title: 'Saved Color Palettes — ColorzPallete',
+          description: 'Access your saved color palettes from ColorzPallete. Manage and export your favorite palette collections.',
+          keywords: 'saved palettes, my palettes, color collection',
+          canonical: 'https://colorzpallete.com/?tab=standard&category=saved',
+        });
+      } else {
+        updateMetaTags(getStandardPalettesMetadata());
+      }
+    }
+  }, [activeTab, activeCategory]);
+
+  // Initialize homepage meta tags on mount
+  useEffect(() => {
+    updateMetaTags(getHomepageMetadata());
+  }, []);
 
   const togglePaletteSave = useCallback((id) => {
     const isSaved = savedPalettes.includes(id);

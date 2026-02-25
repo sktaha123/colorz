@@ -1,0 +1,47 @@
+/* humanstxt.org */
+
+/* TEAM */
+Name: ColorzPallete Development Team
+Site: https://colorzpallete.com
+Twitter: @colorzpallete
+Github: https://github.com/colorzpallete
+Email: team@colorzpallete.com
+
+/* THANKS */
+Thanks to:
+- React and Vite communities for excellent tools
+- Tailwind CSS for modern utility-first CSS
+- Google Fonts for beautiful typography
+
+/* SITE */
+Last Update: 2026-02-25
+Language: English
+Charset: UTF-8
+Standards: HTML5, CSS3, ES6+
+Components: React, Tailwind CSS, Vite
+
+/* TECHNOLOGY */
+Framework: React 19
+Build Tool: Vite 7
+Styling: Tailwind CSS 4
+Runtime: JavaScript (ES Modules)
+Hosting: (specify your hosting)
+Database: (specify if applicable)
+
+/* DESCRIPTION */
+ColorzPallete is a professional UI color system generator designed for designers and developers. 
+It provides 100+ pre-built color palettes and design tokens with multiple export formats 
+(Tailwind CSS, CSS Variables, SCSS, JSON).
+
+/* PHILOSOPHY */
+We believe in:
+- Open collaboration and accessibility
+- Clean, maintainable code
+- User-centric design
+- Performance and speed
+- Beautiful user experiences
+
+/* SOCIAL */
+Twitter: https://twitter.com/colorzpallete
+GitHub: https://github.com/colorzpallete
+LinkedIn: https://linkedin.com/company/colorzpallete

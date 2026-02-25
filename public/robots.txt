@@ -1,0 +1,29 @@
+# Robots.txt for ColorzPallete - UI Color System Builder
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /*.map
+
+# Sitemaps
+Sitemap: https://colorzpallete.com/sitemap.xml
+
+# Crawl rate (optional)
+Crawl-delay: 0
+Request-rate: 30/1m
+
+# Specific bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /

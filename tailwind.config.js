@@ -7,32 +7,32 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Backgrounds
-        'bg-base': '#0C0C0E',
-        'bg-surface': '#131316',
-        'bg-elevated': '#1A1A1F',
-        'bg-hover': '#222228',
-        'bg-active': '#2A2A32',
+        // Backgrounds (Switched to Clean Light Mode)
+        'bg-base': '#F8FAFC',    // Slate-50: Main app background
+        'bg-surface': '#FFFFFF', // White: Cards, sidebars, headers
+        'bg-elevated': '#FFFFFF', // White: Modals, dropdowns
+        'bg-hover': '#F1F5F9',   // Slate-100: Hover states
+        'bg-active': '#E2E8F0',  // Slate-200: Active/Pressed states
         
-        // Borders
-        'border-subtle': '#1F1F26',
-        'border-default': '#2A2A34',
-        'border-strong': '#3A3A48',
+        // Borders (Subtle Grays)
+        'border-subtle': '#F1F5F9', // Slate-100
+        'border-default': '#E2E8F0', // Slate-200
+        'border-strong': '#CBD5E1',  // Slate-300
         
-        // Text
-        'text-primary': '#EBEBF0',
-        'text-secondary': '#8A8A9A',
-        'text-tertiary': '#555568',
-        'text-disabled': '#3A3A48',
+        // Text (High Contrast Slate)
+        'text-primary': '#0F172A',   // Slate-900: Headings, main text
+        'text-secondary': '#475569', // Slate-600: Body text
+        'text-tertiary': '#64748B',  // Slate-500: Meta data, smaller text
+        'text-disabled': '#94A3B8',  // Slate-400
         
-        // Accent
-        'accent': '#8B8BFF',
-        'accent-hover': '#9D9DFF',
-
-        // Functional
-        'success': '#4ADE80',
-        'warning': '#FBBF24',
-        'error': '#FF6B6B',
+        // Accent (Professional Blue/Indigo)
+        'accent': '#2563EB',         // Blue-600: Trustworthy, standard corporate blue
+        'accent-hover': '#1D4ED8',   // Blue-700
+        
+        // Functional (Standardized Palette)
+        'success': '#16A34A',        // Green-600
+        'warning': '#D97706',        // Amber-600 (Darker for better text readability)
+        'error': '#DC2626',          // Red-600
       },
       spacing: {
         '1': '4px',
@@ -74,10 +74,11 @@ export default {
         'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
         'mono': ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
       },
+      // UPDATED: Shadows made softer for light mode
       boxShadow: {
-        'sm': '0 1px 3px rgba(0, 0, 0, 0.4)',
-        'md': '0 4px 12px rgba(0, 0, 0, 0.4)',
-        'lg': '0 8px 24px rgba(0, 0, 0, 0.5)',
+        'sm': '0 1px 2px rgba(0, 0, 0, 0.05)',
+        'md': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       },
       transitionDuration: {
         'fast': '100ms',
