@@ -220,7 +220,7 @@ export default function App() {
                   <option key={opt.value} value={opt.value}>{opt.label}</option>
                 ))}
               </select>
-              <span style={{ fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)', fontFamily: 'var(--font-mono)' }}>
+              <span className="text-xs text-text-tertiary font-mono">
                 {filteredPalettes.length} results
               </span>
             </div>
@@ -228,8 +228,8 @@ export default function App() {
 
           {/* Generator Tab */}
           {isGenerator && (
-            <div style={{ padding: '0 var(--space-6)' }}>
-              <Suspense fallback={<div className="loading-shimmer" style={{ height: 400, borderRadius: 'var(--radius-lg)' }} />}>
+            <div className="px-6">
+              <Suspense fallback={<div className="loading-shimmer" style={{ height: 400, borderRadius: '8px' }} />}>
                 <UIGenerator />
               </Suspense>
             </div>

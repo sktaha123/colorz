@@ -69,11 +69,10 @@ const PaletteCard = memo(function PaletteCard({ palette, onCopy, isSaved, onSave
                         <span key={tag} className="palette-tag" role="listitem">{tag}</span>
                     ))}
                 </div>
-                <div style={{ display: 'flex', gap: 'var(--space-1)', alignItems: 'center' }}>
+                <div className="flex gap-1 items-center">
                     <div className="palette-likes" aria-label={`${palette.likes + (liked ? 1 : 0)} likes`}>
                         <button
-                            className="btn btn-ghost btn-icon-sm"
-                            style={{ color: liked ? 'var(--error)' : undefined, height: 22, width: 22 }}
+                            className={`btn btn-ghost btn-icon-sm ${liked ? 'text-error' : ''}`}
                             onClick={e => { e.stopPropagation(); setLiked(l => !l); }}
                             aria-label={liked ? 'Unlike palette' : 'Like palette'}
                             aria-pressed={liked}
@@ -83,8 +82,7 @@ const PaletteCard = memo(function PaletteCard({ palette, onCopy, isSaved, onSave
                         <span>{(palette.likes + (liked ? 1 : 0)).toLocaleString()}</span>
                     </div>
                     <button
-                        className="btn btn-ghost btn-icon-sm"
-                        style={{ color: isSaved ? 'var(--accent)' : undefined, height: 22, width: 22 }}
+                        className={`btn btn-ghost btn-icon-sm ${isSaved ? 'text-accent' : ''}`}
                         onClick={e => { e.stopPropagation(); onSave?.(); }}
                         aria-label={isSaved ? 'Remove from collection' : 'Save to collection'}
                         aria-pressed={isSaved}
@@ -93,7 +91,6 @@ const PaletteCard = memo(function PaletteCard({ palette, onCopy, isSaved, onSave
                     </button>
                     <button
                         className="btn btn-ghost btn-icon-sm"
-                        style={{ height: 22, width: 22 }}
                         onClick={handleCopyAll}
                         aria-label="Copy all colors"
                         title="Copy all hex values"

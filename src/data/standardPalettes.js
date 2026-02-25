@@ -22,7 +22,7 @@ export const PALETTE_CATEGORIES = [
 
 export const STANDARD_PALETTES = [
   // Popular
-  { id: 1, colors: ['#2C3E50', '#E74C3C', '#ECF0F1', '#3498DB'], tags: ['popular', 'modern', 'dark'], likes: 3241 },
+  { id: 1, colors: ['#2C3E50', '#E74C3C', '#ECF0F1', '#3498DB', ], tags: ['popular', 'modern', 'dark'], likes: 3241 },
   { id: 2, colors: ['#1A1A2E', '#16213E', '#0F3460', '#E94560'], tags: ['popular', 'dark', 'modern'], likes: 2987 },
   { id: 3, colors: ['#F8F9FA', '#E9ECEF', '#495057', '#212529'], tags: ['popular', 'minimal', 'light'], likes: 2654 },
   { id: 4, colors: ['#FFEAA7', '#DFE6E9', '#74B9FF', '#0984E3'], tags: ['popular', 'pastel', 'cool'], likes: 2341 },

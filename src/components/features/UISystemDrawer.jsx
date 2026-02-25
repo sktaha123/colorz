@@ -140,7 +140,7 @@ function TokenTable({ tokens }) {
                                                     ) : (
                                                         <div
                                                             className="token-swatch"
-                                                            style={{ background: value, border: '1px dashed var(--border-default)', backdropFilter: 'blur(4px)' }}
+                                                            style={{ background: value, border: '1px dashed #2A2A34', backdropFilter: 'blur(4px)' }}
                                                             aria-hidden="true"
                                                         />
                                                     )}
@@ -149,8 +149,8 @@ function TokenTable({ tokens }) {
                                             </td>
                                             <td>
                                                 <button
-                                                    className="btn btn-ghost btn-sm"
-                                                    style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', padding: '0 6px', height: 22 }}
+                                                    className="btn btn-ghost btn-sm font-mono text-xs"
+                                                    style={{ padding: '0 6px', height: 22 }}
                                                     onClick={() => copyToken(key, value)}
                                                     aria-label={`Copy value ${value}`}
                                                     title={value}
@@ -190,7 +190,7 @@ export default function UISystemDrawer({ system, onClose }) {
                 <div className="drawer-header">
                     <div>
                         <div className="drawer-title">{system.name}</div>
-                        <div style={{ fontSize: 'var(--text-sm)', color: 'var(--text-tertiary)', marginTop: 2 }}>
+                        <div className="text-sm text-text-tertiary mt-0.5">
                             {system.description}
                         </div>
                     </div>
@@ -205,7 +205,7 @@ export default function UISystemDrawer({ system, onClose }) {
                 </div>
 
                 {/* Tabs */}
-                <div className="tabs" style={{ borderBottom: '1px solid var(--border-subtle)' }}>
+                <div className="tabs" style={{ borderBottom: '1px solid #1F1F26' }}>
                     <button
                         className={`tab ${activeView === 'tokens' ? 'active' : ''}`}
                         onClick={() => setActiveView('tokens')}

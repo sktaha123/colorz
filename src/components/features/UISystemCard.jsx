@@ -49,7 +49,7 @@ const UISystemCard = memo(function UISystemCard({ system, onOpen, isSaved, onSav
                         <span className={`mode-badge ${system.mode}`}>
                             {system.mode === 'dark' ? '◐ Dark' : '◑ Light'}
                         </span>
-                        <span className="sidebar-item-count" style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text-tertiary)' }}>
+                        <span className="text-xs font-mono text-text-tertiary">
                             {Object.keys(system.tokens).length} tokens
                         </span>
                     </div>
@@ -94,21 +94,19 @@ const UISystemCard = memo(function UISystemCard({ system, onOpen, isSaved, onSav
                 </button>
                 <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '4px' }}>
                     <button
-                        className="btn btn-ghost btn-icon-sm"
-                        style={{ color: liked ? 'var(--error)' : undefined, height: 22, width: 22 }}
+                        className={`btn btn-ghost btn-icon-sm ${liked ? 'text-error' : ''}`}
                         onClick={e => { e.stopPropagation(); setLiked(l => !l); }}
                         aria-label={liked ? 'Unlike' : 'Like'}
                         aria-pressed={liked}
                     >
                         <HeartIcon filled={liked} />
                     </button>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text-tertiary)', marginRight: 4 }}>
+                    <span className="font-mono text-xs text-text-tertiary mr-1">
                         {(system.likes + (liked ? 1 : 0)).toLocaleString()}
                     </span>
 
                     <button
-                        className="btn btn-ghost btn-icon-sm"
-                        style={{ color: isSaved ? 'var(--accent)' : undefined, height: 22, width: 22 }}
+                        className={`btn btn-ghost btn-icon-sm ${isSaved ? 'text-accent' : ''}`}
                         onClick={e => { e.stopPropagation(); onSave?.(); }}
                         aria-label={isSaved ? 'Remove from collection' : 'Save to collection'}
                         aria-pressed={isSaved}

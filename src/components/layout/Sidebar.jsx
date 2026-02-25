@@ -72,7 +72,7 @@ export default function Sidebar({ activeCategory, onCategoryChange, activeTab, i
                 </div>
 
                 {/* My Collection */}
-                <div className="sidebar-section" style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: 'var(--space-4)' }}>
+                <div className="sidebar-section pt-4" style={{ borderTop: '1px solid #1F1F26' }}>
                     <div className="sidebar-label">
                         <BookmarkIcon /> &nbsp;My Collection
                     </div>
@@ -95,7 +95,7 @@ export default function Sidebar({ activeCategory, onCategoryChange, activeTab, i
                 </div>
 
                 {/* UI System Tools */}
-                <div className="sidebar-section" style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: 'var(--space-4)' }}>
+                <div className="sidebar-section pt-4" style={{ borderTop: '1px solid #1F1F26' }}>
                     <div className="sidebar-label">
                         <LayersIcon /> &nbsp;UI System
                     </div>
@@ -116,7 +116,7 @@ export default function Sidebar({ activeCategory, onCategoryChange, activeTab, i
                         aria-pressed={activeTab === 'generator'}
                     >
                         <span>Generator</span>
-                        <span className="sidebar-badge" style={{ background: 'rgba(139,139,255,0.08)', color: 'var(--accent)' }}>Tool</span>
+                        <span className="sidebar-badge">Tool</span>
                     </button>
                 </div>
             </aside>

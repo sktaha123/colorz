@@ -79,7 +79,7 @@ function TokenTable({ tokens, copiedKey, onCopy }) {
                                                         className="token-swatch"
                                                         style={{
                                                             background: isColor ? value : 'transparent',
-                                                            border: isColor ? '1px solid var(--border-subtle)' : '1px dashed var(--border-default)',
+                                                            border: isColor ? '1px solid #1F1F26' : '1px dashed #2A2A34',
                                                         }}
                                                         aria-hidden="true"
                                                     />
@@ -88,8 +88,8 @@ function TokenTable({ tokens, copiedKey, onCopy }) {
                                             </td>
                                             <td>
                                                 <button
-                                                    className="btn btn-ghost btn-sm"
-                                                    style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', padding: '0 6px', height: 22 }}
+                                                    className="btn btn-ghost btn-sm font-mono text-xs"
+                                                    style={{ padding: '0 6px', height: 22 }}
                                                     onClick={() => onCopy(key, value)}
                                                     aria-label={`Copy value ${value}`}
                                                     title={value}
@@ -206,21 +206,21 @@ export default function UIGenerator() {
                 <div className="generator-header">
                     <div>
                     
-                        <div style={{ fontSize: 'var(--text-sm)', color: 'var(--text-tertiary)', marginTop: 2 }}>
+                        <div className="text-sm text-text-tertiary mt-0.5">
                             Generate a complete set of {Object.keys(tokens).length} design tokens from a brand color
                         </div>
                     </div>
                     <div className="generator-controls">
                         {/* Color presets */}
-                        <div style={{ display: 'flex', gap: 'var(--space-1)', flexWrap: 'wrap' }}>
+                        <div className="flex gap-1 flex-wrap">
                             {PRESET_COLORS.map(p => (
                                 <button
                                     key={p.color}
                                     className="btn btn-icon-sm"
                                     style={{
                                         background: p.color,
-                                        border: baseColor.toLowerCase() === p.color.toLowerCase() ? '2px solid var(--text-primary)' : '2px solid transparent',
-                                        borderRadius: 'var(--radius-sm)',
+                                        border: baseColor.toLowerCase() === p.color.toLowerCase() ? '2px solid #EBEBF0' : '2px solid transparent',
+                                        borderRadius: '4px',
                                         height: 22, width: 22,
                                         padding: 0,
                                         boxShadow: baseColor.toLowerCase() === p.color.toLowerCase() ? '0 0 0 3px rgba(255,255,255,0.1)' : undefined,
@@ -289,7 +289,7 @@ export default function UIGenerator() {
                 </div>
 
                 {/* View tabs */}
-                <div className="tabs" style={{ borderBottom: '1px solid var(--border-subtle)' }}>
+                <div className="tabs" style={{ borderBottom: '1px solid #1F1F26' }}>
                     <button
                         className={`tab ${activeView === 'tokens' ? 'active' : ''}`}
                         onClick={() => setActiveView('tokens')}

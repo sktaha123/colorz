@@ -53,7 +53,7 @@ function Pagination({ total, page, onPageChange }) {
 
             {result.map((p, i) =>
                 p === '...' ? (
-                    <span key={`ellipsis-${i}`} style={{ color: 'var(--text-tertiary)', padding: '0 4px', fontSize: 'var(--text-sm)' }}>…</span>
+                    <span key={`ellipsis-${i}`} className="text-text-tertiary px-1 py-0 text-sm">…</span>
                 ) : (
                     <button
                         key={p}
