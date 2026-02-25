@@ -237,6 +237,11 @@ body {
   transition: border-color var(--transition-base);
 }
 
+.search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 .search-input::placeholder {
   color: var(--text-tertiary);
 }
@@ -299,7 +304,7 @@ body {
 }
 
 .sidebar-label {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -312,7 +317,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: var(--space-2) var(--space-4);
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   font-weight: 500;
   color: var(--text-secondary);
   cursor: pointer;

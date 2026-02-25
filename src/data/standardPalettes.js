@@ -194,7 +194,7 @@ export const STANDARD_PALETTES = [
   { id: 138, colors: ['#001400', '#002800', '#004000', '#00FF00'], tags: ['dark', 'neon', 'nature'], likes: 732 },
 
   // More Pastel
-  { id: 139, colors: ['#FFE5EC', '#FFB3C1', '#FF85A1', '#FF4D6D'], tags: ['pastel', 'warm'], likes: 710 },
+  { id: 139, colors: ['#FFE5EC', '#FFB3C1', '#FF85A1', '#FF4D6D'], tags: ['pastel', 'warm'], search: ['apple'], likes: 710 },
   { id: 140, colors: ['#E0F2FE', '#B3E5FC', '#81D4FA', '#4FC3F7'], tags: ['pastel', 'cool', 'ocean'], likes: 687 },
   { id: 141, colors: ['#E8F5E9', '#C8E6C9', '#A5D6A7', '#81C784'], tags: ['pastel', 'nature', 'cool'], likes: 665 },
   { id: 142, colors: ['#FFF3E0', '#FFE0B2', '#FFCC80', '#FFB74D'], tags: ['pastel', 'warm'], likes: 643 },
