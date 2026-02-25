@@ -13,22 +13,22 @@ export default {
         'bg-elevated': '#FFFFFF', // White: Modals, dropdowns
         'bg-hover': '#F1F5F9',   // Slate-100: Hover states
         'bg-active': '#E2E8F0',  // Slate-200: Active/Pressed states
-        
+
         // Borders (Subtle Grays)
         'border-subtle': '#F1F5F9', // Slate-100
         'border-default': '#E2E8F0', // Slate-200
         'border-strong': '#CBD5E1',  // Slate-300
-        
+
         // Text (High Contrast Slate)
         'text-primary': '#0F172A',   // Slate-900: Headings, main text
         'text-secondary': '#475569', // Slate-600: Body text
         'text-tertiary': '#64748B',  // Slate-500: Meta data, smaller text
         'text-disabled': '#94A3B8',  // Slate-400
-        
+
         // Accent (Professional Blue/Indigo)
         'accent': '#2563EB',         // Blue-600: Trustworthy, standard corporate blue
         'accent-hover': '#1D4ED8',   // Blue-700
-        
+
         // Functional (Standardized Palette)
         'success': '#16A34A',        // Green-600
         'warning': '#D97706',        // Amber-600 (Darker for better text readability)
@@ -71,8 +71,9 @@ export default {
         '4xl': ['48px', { lineHeight: '1.1' }],
       },
       fontFamily: {
-        'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-        'mono': ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
+        'sans': ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        'display': ['Outfit', 'sans-serif'],
+        'mono': ['"JetBrains Mono"', 'Fira Code', 'Consolas', 'monospace'],
       },
       // UPDATED: Shadows made softer for light mode
       boxShadow: {

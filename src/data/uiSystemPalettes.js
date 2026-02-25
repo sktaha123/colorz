@@ -1007,6 +1007,7 @@ export const UI_SYSTEM_PALETTES = [
             caretColor: '#20B2AA',
             progressBarFill: '#20B2AA',
             progressBarTrack: '#0B1717',
+
         },
         tags: ['ui-system', 'dark', 'clean'],
         likes: 543,

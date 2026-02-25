@@ -61,20 +61,7 @@ const UISystemCard = memo(function UISystemCard({ system, onOpen, isSaved, onSav
                 </div>
             </div>
 
-            <div className="ui-card-tokens-preview" aria-label="Token preview">
-                {previewTokens.map(key => {
-                    const value = system.tokens[key];
-                    if (!value || value.startsWith('rgba') || value.startsWith('rgb')) {
-                        return null;
-                    }
-                    return (
-                        <div key={key} className="token-dot-row" title={`${TOKEN_METADATA[key]?.label}: ${value}`}>
-                            <div className="token-dot" style={{ background: value }} aria-hidden="true" />
-                            <span className="truncate" style={{ maxWidth: 80 }}>{TOKEN_METADATA[key]?.label?.split(' ')[0]}</span>
-                        </div>
-                    );
-                })}
-            </div>
+
 
             <div className="ui-card-actions">
                 <button
