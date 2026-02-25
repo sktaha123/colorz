@@ -20,7 +20,23 @@ export default defineConfig({
         drop_debugger: true
       }
     },
+    cssMinify: true,
     sourcemap: false,
-    cssCodeSplit: true
+    cssCodeSplit: true,
+    chunkSizeWarningLimit: 500,
+    reportCompressedSize: false,
+    target: 'esnext',
+    lib: false,
+    outDir: 'dist',
+    assetsDir: 'assets',
+    emptyOutDir: true
+  },
+  server: {
+    middlewareMode: false,
+    hmr: true
+  },
+  ssr: false,
+  preview: {
+    port: 5173
   }
 })

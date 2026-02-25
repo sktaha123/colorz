@@ -7,32 +7,32 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Backgrounds (Switched to Clean Light Mode)
-        'bg-base': '#F8FAFC',    // Slate-50: Main app background
-        'bg-surface': '#FFFFFF', // White: Cards, sidebars, headers
-        'bg-elevated': '#FFFFFF', // White: Modals, dropdowns
-        'bg-hover': '#F1F5F9',   // Slate-100: Hover states
-        'bg-active': '#E2E8F0',  // Slate-200: Active/Pressed states
+        // Backgrounds (Professional Dark Blue Theme)
+        'bg-base': '#E0E1DD',       // Very light neutral: Main app background
+        'bg-surface': '#FFFFFF',    // White: Cards, sidebars, headers
+        'bg-elevated': '#FFFFFF',   // White: Modals, dropdowns
+        'bg-hover': '#B0B0AD',      // Gray: Hover states
+        'bg-active': '#415A77',     // Medium blue: Active/Pressed states
 
-        // Borders (Subtle Grays)
-        'border-subtle': '#F1F5F9', // Slate-100
-        'border-default': '#E2E8F0', // Slate-200
-        'border-strong': '#CBD5E1',  // Slate-300
+        // Borders (Blue Palette)
+        'border-subtle': '#B0B0AD',  // Gray
+        'border-default': '#415A77', // Medium blue
+        'border-strong': '#1B263B',  // Dark blue
 
-        // Text (High Contrast Slate)
-        'text-primary': '#0F172A',   // Slate-900: Headings, main text
-        'text-secondary': '#475569', // Slate-600: Body text
-        'text-tertiary': '#64748B',  // Slate-500: Meta data, smaller text
-        'text-disabled': '#94A3B8',  // Slate-400
+        // Text (High Contrast Blue)
+        'text-primary': '#060D14',   // Very dark blue: Headings, main text
+        'text-secondary': '#0D1B2A', // Dark blue: Body text
+        'text-tertiary': '#1B263B',  // Medium-dark blue: Meta data
+        'text-disabled': '#415A77',  // Medium blue (muted)
 
-        // Accent (Professional Blue/Indigo)
-        'accent': '#2563EB',         // Blue-600: Trustworthy, standard corporate blue
-        'accent-hover': '#1D4ED8',   // Blue-700
+        // Accent (Professional Blue)
+        'accent': '#1B263B',         // Dark blue: Primary accent
+        'accent-hover': '#0D1B2A',   // Very dark blue: Hover state
 
         // Functional (Standardized Palette)
-        'success': '#16A34A',        // Green-600
-        'warning': '#D97706',        // Amber-600 (Darker for better text readability)
-        'error': '#DC2626',          // Red-600
+        'success': '#1B263B',        // Blue (primary color)
+        'warning': '#FFA500',        // Amber (warning)
+        'error': '#D32F2F',          // Red (error)
       },
       spacing: {
         '1': '4px',

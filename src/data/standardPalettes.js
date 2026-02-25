@@ -168,7 +168,7 @@ export const STANDARD_PALETTES = [
   { id: 116, colors: ['#1B2E1B', '#2E492E', '#4D7A4D', '#84AD84', '#C2DBC2', '#0F1A0F'], tags: ['forest', 'dark', 'nature', 'hunting', 'outdoor', 'gear', 'tactical'], likes: 343 },
   { id: 117, colors: ['#111C11', '#1E301E', '#36573A', '#638C68', '#8FB393', '#080D08'], tags: ['forest', 'dark', 'earth', 'camping', 'hiking', 'adventure', 'travel'], likes: 321 },
   { id: 118, colors: ['#30472F', '#4F7041', '#7A9F68', '#B4CC9E', '#E2EFD9', '#1C291B'], tags: ['forest', 'nature', 'earth', 'agriculture', 'farming', 'produce', 'vegetables'], likes: 298 },
-  { id: 119, colors: ['#213821', '#3B6B3B', '#6B9E6B', '#B0CEB0', '#DDF0DD', '#121F12'], tags: ['forest', 'nature', 'light', 'health', 'wellness', 'yoga', 'meditation'], likes: 276 },
+  { id: 119, colors: ['#0D1B2A', '#1B263B', '#415A77', '#B0B0AD', '#E0E1DD', '#060D14'], tags: ['forest', 'nature', 'light', 'health', 'wellness', 'yoga', 'meditation'], likes: 276 },
   { id: 120, colors: ['#0F1F0F', '#1F3D1F', '#3B6B3D', '#6B9E6D', '#9ACCA0', '#070F07'], tags: ['forest', 'dark', 'nature', 'coding', 'terminal', 'dev', 'hacker'], likes: 254 },
 
   // More Modern

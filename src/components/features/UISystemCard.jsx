@@ -1,107 +1,134 @@
 import { useState, useCallback, memo } from 'react';
-import { TOKEN_METADATA } from '../../utils/tokenGenerator';
+import { EyeIcon, ExportIcon, HeartIcon, BookmarkIcon } from '../shared/Icons';
 
-const EyeIcon = () => (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" />
-    </svg>
-);
-
-const ExportIcon = () => (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
-    </svg>
-);
-
-const HeartIcon = ({ filled }) => (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2">
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-    </svg>
-);
-
-const BookmarkIcon = ({ filled }) => (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
-    </svg>
-);
-
-const UISystemCard = memo(function UISystemCard({ system, onOpen, isSaved, onSave }) {
-    const [liked, setLiked] = useState(false);
-
+/**
+ * UISystemCardActions - Action buttons for UI System Card
+ */
+const UISystemCardActions = memo(function UISystemCardActions({ system, liked, onLikeChange, isSaved, onSave, onOpen }) {
     const handleExportClick = useCallback((e) => {
         e.stopPropagation();
         onOpen?.(system);
     }, [system, onOpen]);
 
-    const previewTokens = [
-        'checkboxFill', 'sliderThumb', 'switchTrack',
-        'focusedInputBorder', 'gradientStop1', 'gradientStop2',
-        'skeletonBase', 'caretColor',
-    ];
+    const handleLike = useCallback((e) => {
+        e.stopPropagation();
+        onLikeChange();
+    }, [onLikeChange]);
+
+    const handleSave = useCallback((e) => {
+        e.stopPropagation();
+        onSave?.();
+    }, [onSave]);
 
     return (
-        <article className="ui-system-card" aria-label={`UI System: ${system.name}`}>
+        <div className="ui-card-actions">
+            <button
+                className="btn btn-primary btn-sm"
+                id={`view-system-${system.id}`}
+                onClick={handleExportClick}
+                aria-label={`View and export ${system.name} design tokens`}
+            >
+                <EyeIcon /> View &amp; Export
+            </button>
+            <button
+                className="btn btn-secondary btn-sm"
+                onClick={handleExportClick}
+                aria-label={`Export ${system.name} to different formats`}
+                title="View export formats"
+            >
+                <ExportIcon /> Export
+            </button>
+            <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <button
+                    className={`btn btn-ghost btn-icon-sm ${liked ? 'text-error' : ''}`}
+                    onClick={handleLike}
+                    aria-label={liked ? 'Unlike this UI system' : 'Like this UI system'}
+                    aria-pressed={liked}
+                >
+                    <HeartIcon filled={liked} />
+                </button>
+                <span className="font-mono text-xs text-text-tertiary mr-1" aria-label={`${system.likes + (liked ? 1 : 0)} likes`}>
+                    {(system.likes + (liked ? 1 : 0)).toLocaleString()}
+                </span>
+
+                <button
+                    className={`btn btn-ghost btn-icon-sm ${isSaved ? 'text-accent' : ''}`}
+                    onClick={handleSave}
+                    aria-label={isSaved ? 'Remove from collection' : 'Save to collection'}
+                    aria-pressed={isSaved}
+                >
+                    <BookmarkIcon filled={isSaved} />
+                </button>
+            </div>
+        </div>
+    );
+});
+
+/**
+ * UISystemCardMeta - Metadata section of the card
+ */
+const UISystemCardMeta = memo(function UISystemCardMeta({ system }) {
+    return (
+        <div className="ui-card-meta">
+            <span className={`mode-badge ${system.mode}`} aria-label={`${system.mode} mode`}>
+                {system.mode === 'dark' ? '◐ Dark' : '◑ Light'}
+            </span>
+            <span className="text-xs font-mono text-text-tertiary" title={`Total design tokens: ${Object.keys(system.tokens).length}`}>
+                {Object.keys(system.tokens).length} tokens
+            </span>
+        </div>
+    );
+});
+
+/**
+ * UISystemCard - Design system preview card
+ * Displays system name, description, preview colors, and action buttons
+ */
+const UISystemCard = memo(function UISystemCard({ system, onOpen, isSaved, onSave }) {
+    const [liked, setLiked] = useState(false);
+
+    const handleLikeChange = useCallback(() => {
+        setLiked(prev => !prev);
+    }, []);
+
+    if (!system) return null;
+
+    return (
+        <article
+            className="ui-system-card"
+            aria-label={`UI System: ${system.name}`}
+        >
+            {/* Header with title, description, and preview */}
             <div className="ui-card-header">
                 <div>
-                    <div className="ui-card-name">{system.name}</div>
-                    <div className="ui-card-description">{system.description}</div>
-                    <div className="ui-card-meta">
-                        <span className={`mode-badge ${system.mode}`}>
-                            {system.mode === 'dark' ? '◐ Dark' : '◑ Light'}
-                        </span>
-                        <span className="text-xs font-mono text-text-tertiary">
-                            {Object.keys(system.tokens).length} tokens
-                        </span>
-                    </div>
+                    <h3 className="ui-card-name">{system.name}</h3>
+                    <p className="ui-card-description">{system.description}</p>
+                    <UISystemCardMeta system={system} />
                 </div>
-                <div className="ui-card-preview" aria-label="Color preview">
-                    {system.preview.map((color, i) => (
-                        <div key={i} className="ui-card-preview-swatch" style={{ backgroundColor: color }} />
+
+                {/* Color preview swatches */}
+                <div className="ui-card-preview" aria-label={`Preview colors for ${system.name}`} role="list">
+                    {system.preview.map((color, idx) => (
+                        <div
+                            key={`${system.id}-color-${idx}`}
+                            className="ui-card-preview-swatch"
+                            style={{ backgroundColor: color }}
+                            role="listitem"
+                            aria-label={`Color ${idx + 1}: ${color}`}
+                        />
                     ))}
                 </div>
             </div>
 
-
-
-            <div className="ui-card-actions">
-                <button
-                    className="btn btn-primary btn-sm"
-                    id={`view-system-${system.id}`}
-                    onClick={handleExportClick}
-                    aria-label={`View and export ${system.name} tokens`}
-                >
-                    <EyeIcon /> View &amp; Export
-                </button>
-                <button
-                    className="btn btn-secondary btn-sm"
-                    onClick={handleExportClick}
-                    aria-label={`Export ${system.name}`}
-                >
-                    <ExportIcon /> Export
-                </button>
-                <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <button
-                        className={`btn btn-ghost btn-icon-sm ${liked ? 'text-error' : ''}`}
-                        onClick={e => { e.stopPropagation(); setLiked(l => !l); }}
-                        aria-label={liked ? 'Unlike' : 'Like'}
-                        aria-pressed={liked}
-                    >
-                        <HeartIcon filled={liked} />
-                    </button>
-                    <span className="font-mono text-xs text-text-tertiary mr-1">
-                        {(system.likes + (liked ? 1 : 0)).toLocaleString()}
-                    </span>
-
-                    <button
-                        className={`btn btn-ghost btn-icon-sm ${isSaved ? 'text-accent' : ''}`}
-                        onClick={e => { e.stopPropagation(); onSave?.(); }}
-                        aria-label={isSaved ? 'Remove from collection' : 'Save to collection'}
-                        aria-pressed={isSaved}
-                    >
-                        <BookmarkIcon filled={isSaved} />
-                    </button>
-                </div>
-            </div>
+            {/* Action buttons */}
+            <UISystemCardActions
+                system={system}
+                liked={liked}
+                onLikeChange={handleLikeChange}
+                isSaved={isSaved}
+                onSave={onSave}
+                onOpen={onOpen}
+            />
         </article>
     );
 });

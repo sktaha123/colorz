@@ -140,7 +140,7 @@ function TokenTable({ tokens }) {
                                                     ) : (
                                                         <div
                                                             className="token-swatch"
-                                                            style={{ background: value, border: '1px dashed #2A2A34', backdropFilter: 'blur(4px)' }}
+                                                            style={{ background: value, border: '1px dashed #E0E1DD', backdropFilter: 'blur(4px)' }}
                                                             aria-hidden="true"
                                                         />
                                                     )}
@@ -205,7 +205,7 @@ export default function UISystemDrawer({ system, onClose }) {
                 </div>
 
                 {/* Tabs */}
-                <div className="tabs" style={{ borderBottom: '1px solid #1F1F26' }}>
+                <div className="tabs" style={{ borderBottom: '1px solid #B0B0AD' }}>
                     <button
                         className={`tab ${activeView === 'tokens' ? 'active' : ''}`}
                         onClick={() => setActiveView('tokens')}
